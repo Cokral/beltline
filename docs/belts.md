@@ -31,7 +31,7 @@ From a belt's page you can:
 | Trigger | Starts a run for | Settings |
 | --- | --- | --- |
 | **GitHub issues** | every open issue with a label | the label (default `agent`), assignee *anyone* or *me*, how often to check (default every 60 seconds) |
-| **Review requests** | every pull request that asks for your review; a new request on the same pull request starts a new run | reviewers *me* or *me and my teams*, how often to check |
+| **Review requests** | every pull request that asks for your review, except one from a fork (see the [security model](security.md)); a new request on the same pull request starts a new run | reviewers *me* or *me and my teams*, how often to check |
 | **Jira** | every ticket a JQL query finds | the JQL, how often to check |
 | **Schedule** | a task at a time of day | every day, weekdays or one day a week, the time, and the task's title and description |
 | **Manual** | a task you start with **Start a task…** | none |
@@ -48,13 +48,13 @@ The base branch is the repository's default unless you set one for the belt, or 
 
 ## Policies
 
-Each belt has four policies, all on by default, in the editor once a trigger watches issues, review requests or tickets. A run keeps the policies it started with.
+Each belt has four policies, all on by default except **Comment when held**, in the editor once a trigger watches issues, review requests or tickets. A run keeps the policies it started with.
 
 | Policy | What it does |
 | --- | --- |
 | **Triage again when edited** | When the issue or ticket is edited before a stage changed code, start the run again at the first stage. For review requests: review an edited pull request again. |
 | **Stop when closed** | When the issue is closed, the ticket finished or the review no longer requested, stop the run, unless it has reached a watch stage. |
-| **Comment when held** | Comment on the issue, pull request or ticket when a stage holds the run. |
+| **Comment when held** | Comment on the issue, pull request or ticket when a stage holds the run. Off by default: Beltline posts the agent's questions or output without you reading it first, where anyone who can see the issue reads it. |
 | **Wait for blockers** | Leave an issue or ticket alone while an open issue or ticket blocks it. Work lists it as waiting. |
 
 ## Epics

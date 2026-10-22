@@ -15,7 +15,7 @@ Beltline turns work items into pull requests by running them along **belts**. Th
 : A trigger plus stages. Belts are saved as numbered versions, and a run finishes on the version it started on. See [Belts and triggers](belts.md).
 
 **Trigger**
-: What starts runs: GitHub issues with a label, pull requests that ask for your review, Jira tickets from a JQL query, a schedule, or tasks you start yourself.
+: What starts runs: GitHub issues with a label, pull requests that ask for your review (from the repository's own branches; pull requests from forks are skipped), Jira tickets from a JQL query, a schedule, or tasks you start yourself.
 
 **Stage**
 : One step. An *agent* stage runs a coding agent CLI with a brief. An *approval* waits for you. A *watch* waits on the run's pull request, issue or ticket. See [Stages, outcomes and forks](stages.md).
@@ -42,7 +42,7 @@ Beltline turns work items into pull requests by running them along **belts**. Th
 
 ## Who does what
 
-Agents make every outward change themselves, with `gh` and `acli`: pushes, pull requests, comments, labels, reviews and ticket moves. The built-in Ship, Post review and Wrap up agents do the usual ones. Beltline itself only reads GitHub and Jira, apart from a comment when a run is held (a [belt policy](belts.md#policies)) and the library repositories you configure. What an agent may do is what its brief and your belt allow; the [security model](security.md) explains what that means.
+Agents make every outward change themselves, with `gh` and `acli`: pushes, pull requests, comments, labels, reviews and ticket moves. The built-in Ship, Post review and Wrap up agents do the usual ones. Beltline itself only reads GitHub and Jira, apart from a comment when a run is held (a [belt policy](belts.md#policies), off unless you turn it on) and the library repositories you configure. What an agent may do is what its brief and your belt allow; the [security model](security.md) explains what that means.
 
 The daemon owns every fact and decision: which actions a run allows, whether a belt can be saved, every status and cost. The browser only shows what it's given, so two browsers on the same daemon never disagree.
 
