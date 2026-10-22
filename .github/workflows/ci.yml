@@ -1,0 +1,157 @@
+name: CI
+
+# The checks every pull request and every push to main must pass. They call go and npm directly
+# rather than make quick or make test, whose machine-wide lock is for several local agents sharing a Mac.
+# Read-only: no secrets, no sign-in, no live GitHub, Jira or agent calls. The jobs run only in a public
+# repository, where macOS runners are free; in a private copy they are skipped.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+# The contract goldens hold clock labels and day boundaries in this time zone (as the Makefile sets).
+env:
+  TZ: Europe/Amsterdam
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  go:
+    name: Go
+    if: ${{ !github.event.repository.private }}
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: daemon/go.mod
+          cache-dependency-path: daemon/go.sum
+      - name: go vet
+        working-directory: daemon
+        run: go vet ./...
+      - name: go test
+        working-directory: daemon
+        run: go test ./...
+      - name: govulncheck
+        working-directory: daemon
+        run: go run golang.org/x/vuln/cmd/govulncheck@v1.9.0 ./...
+
+  go-integration:
+    name: Go integration
+    if: ${{ !github.event.repository.private }}
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: daemon/go.mod
+          cache-dependency-path: daemon/go.sum
+      - name: Install tmux
+        run: brew install tmux
+      - name: go test -tags integration (tmux, PTY, the stand-in agent)
+        working-directory: daemon
+        run: go test -tags integration ./...
+
+  go-linux:
+    name: Go on Linux
+    if: ${{ !github.event.repository.private }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: daemon/go.mod
+          cache-dependency-path: daemon/go.sum
+      # tmux runs the agent sessions; the stand-in agent and the tmux tests' helpers are zsh scripts.
+      - name: Install tmux and zsh
+        run: sudo apt-get update && sudo apt-get install -y tmux zsh
+      - name: go vet
+        working-directory: daemon
+        run: go vet -tags integration ./...
+      - name: go test -tags integration
+        working-directory: daemon
+        run: go test -tags integration ./...
+
+  lint:
+    name: Lint
+    if: ${{ !github.event.repository.private }}
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: daemon/go.mod
+          cache-dependency-path: daemon/go.sum
+      - name: Install golangci-lint v2.14.0
+        env:
+          GOLANGCI_LINT_VERSION: "2.14.0"
+        run: |
+          set -euo pipefail
+          case "$(uname -m)" in
+            arm64) arch=arm64 ;;
+            x86_64) arch=amd64 ;;
+            *) echo "unsupported architecture: $(uname -m)" >&2; exit 1 ;;
+          esac
+          archive="golangci-lint-${GOLANGCI_LINT_VERSION}-darwin-${arch}.tar.gz"
+          base="https://github.com/golangci/golangci-lint/releases/download/v${GOLANGCI_LINT_VERSION}"
+          work="$RUNNER_TEMP/golangci-lint"
+          mkdir -p "$work" "$RUNNER_TEMP/bin"
+          curl -fsSL -o "$work/$archive" "$base/$archive"
+          curl -fsSL -o "$work/checksums.txt" "$base/golangci-lint-${GOLANGCI_LINT_VERSION}-checksums.txt"
+          (cd "$work" && grep " ${archive}\$" checksums.txt | shasum -a 256 -c -)
+          tar -xzf "$work/$archive" -C "$work"
+          install -m 0755 "$work/golangci-lint-${GOLANGCI_LINT_VERSION}-darwin-${arch}/golangci-lint" "$RUNNER_TEMP/bin/golangci-lint"
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+      - name: make lint
+        run: make lint
+
+  web:
+    name: Web
+    if: ${{ !github.event.repository.private }}
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: daemon/go.mod
+          cache-dependency-path: daemon/go.sum
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: lts/*
+          cache: npm
+          cache-dependency-path: Web/package-lock.json
+      - name: npm ci
+        working-directory: Web
+        run: npm ci
+      - name: Typecheck
+        working-directory: Web
+        run: npm run typecheck
+      - name: Tests
+        working-directory: Web
+        run: npm test
+      - name: Build
+        working-directory: Web
+        run: npm run build
+      - name: Third-party notices are current
+        run: scripts/notices.sh --check
+
+  pr-title:
+    name: Conventional Commit title
+    if: ${{ github.event_name == 'pull_request' && !github.event.repository.private }}
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - uses: amannn/action-semantic-pull-request@48f256284bd46cdaab1048c3721360e808335d50 # v6.1.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

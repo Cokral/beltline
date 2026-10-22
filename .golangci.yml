@@ -1,0 +1,29 @@
+# Lint policy for the daemon (`make lint`). Pinned golangci-lint release: v2.14.0.
+version: "2"
+
+run:
+  tests: true
+
+linters:
+  # Only the analyzers listed here run; the presets and exclusion rules stay off so every
+  # finding is reported.
+  default: none
+  enable:
+    - errcheck
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+
+formatters:
+  enable:
+    - gofmt
+  settings:
+    gofmt:
+      # The same rules as `gofmt -s`, which make lint also runs over every tracked file.
+      simplify: true
+
+# Report every finding: the defaults stop after three of the same message and fifty per linter.
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0

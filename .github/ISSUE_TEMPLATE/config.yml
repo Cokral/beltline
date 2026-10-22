@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and ideas
+    url: https://github.com/robbertmanders/beltline/discussions
+    about: Ask how to do something, or share a belt or an idea.
+  - name: Report a vulnerability
+    url: https://github.com/robbertmanders/beltline/security/advisories/new
+    about: Report security problems privately.

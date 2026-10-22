@@ -1,0 +1,24 @@
+[
+  {
+    "name": "RunPauseDeferred merged",
+    "type": "RunPauseDeferred",
+    "value": {
+      "merged": {
+        "_0": [
+          "bl-demo-1"
+        ]
+      }
+    }
+  },
+  {
+    "name": "RunPauseDeferred conflict",
+    "type": "RunPauseDeferred",
+    "value": {
+      "conflict": {
+        "_0": [
+          "bl-demo-2"
+        ]
+      }
+    }
+  }
+]

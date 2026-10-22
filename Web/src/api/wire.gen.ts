@@ -1,0 +1,2927 @@
+// Generated from the Go wire types by TestTypeScript. Do not edit: run
+// BELTLINE_UPDATE_GOLDENS=1 go test ./internal/server/api -run TestTypeScript.
+
+export const adjustmentFieldValues = ["backend", "model", "thinking", "brief"] as const;
+export type AdjustmentField = (typeof adjustmentFieldValues)[number];
+
+export const afkModeValues = ["always", "never", "global"] as const;
+export type AfkMode = (typeof afkModeValues)[number];
+
+export const attemptInterruptionConfirmationValues = ["pending", "confirmed", "failed"] as const;
+export type AttemptInterruptionConfirmation = (typeof attemptInterruptionConfirmationValues)[number];
+
+export const attemptInterruptionContinuationStatusValues = ["queued", "launching", "launched", "failed", "ambiguous", "invalidated"] as const;
+export type AttemptInterruptionContinuationStatus = (typeof attemptInterruptionContinuationStatusValues)[number];
+
+export const attemptLaunchModeValues = ["interactive", "headless"] as const;
+export type AttemptLaunchMode = (typeof attemptLaunchModeValues)[number];
+
+export const backendValues = ["copilot", "pi", "claude", "codex", "cursor"] as const;
+export type Backend = (typeof backendValues)[number];
+
+export const beltLookValues = ["boxes", "machines", "metro"] as const;
+export type BeltLook = (typeof beltLookValues)[number];
+
+export const boxMapKindValues = ["trigger", "agent", "approval", "watch"] as const;
+export type BoxMapKind = (typeof boxMapKindValues)[number];
+
+export const costProvenanceValues = ["reported", "estimated"] as const;
+export type CostProvenance = (typeof costProvenanceValues)[number];
+
+export const eventResourceValues = ["runs", "library", "settings", "state", "intake", "assistant", "afk", "models"] as const;
+export const factoryNodeKindValues = ["entrance", "machine", "waypoint"] as const;
+export type FactoryNodeKind = (typeof factoryNodeKindValues)[number];
+
+export const fallbackValues = ["hold", "retry", "drop"] as const;
+export type Fallback = (typeof fallbackValues)[number];
+
+export const inlineSpanKindValues = ["text", "strong", "code"] as const;
+export type InlineSpanKind = (typeof inlineSpanKindValues)[number];
+
+export const insightsDeltaToneValues = ["better", "worse", "flat", "none"] as const;
+export type InsightsDeltaTone = (typeof insightsDeltaToneValues)[number];
+
+export const insightsEvolutionAxisValues = ["version", "week"] as const;
+export type InsightsEvolutionAxis = (typeof insightsEvolutionAxisValues)[number];
+
+export const insightsEvolutionOutcomeValues = ["done", "shipped", "dropped"] as const;
+export type InsightsEvolutionOutcome = (typeof insightsEvolutionOutcomeValues)[number];
+
+export const insightsFigureIDValues = ["lead", "toPR", "cost", "visits", "touches", "shipRate"] as const;
+export type InsightsFigureID = (typeof insightsFigureIDValues)[number];
+
+export const insightsKpiIDValues = ["firstTry", "shipRate", "leadTime", "cost"] as const;
+export type InsightsKpiID = (typeof insightsKpiIDValues)[number];
+
+export const insightsPeriodValues = ["7d", "30d", "90d", "all"] as const;
+export type InsightsPeriod = (typeof insightsPeriodValues)[number];
+
+export const libraryCardStatusToneValues = ["good", "grey", "need"] as const;
+export type LibraryCardStatusTone = (typeof libraryCardStatusToneValues)[number];
+
+export const libraryItemStateValues = ["available", "installed", "update", "conflict"] as const;
+export type LibraryItemState = (typeof libraryItemStateValues)[number];
+
+export const libraryPublishValues = ["pullRequest", "push"] as const;
+export type LibraryPublish = (typeof libraryPublishValues)[number];
+
+export const libraryRoleValues = ["backup", "shared"] as const;
+export type LibraryRole = (typeof libraryRoleValues)[number];
+
+export const machineValues = ["sorter", "typewriter", "mailbox", "robot", "microscope", "reader", "van", "box", "telescope", "stamp", "crane", "drill", "radar"] as const;
+export type Machine = (typeof machineValues)[number];
+
+export const markdownBlockKindValues = ["heading", "item", "code", "paragraph"] as const;
+export type MarkdownBlockKind = (typeof markdownBlockKindValues)[number];
+
+export const pullRequestCheckStateValues = ["pending", "passing", "failing"] as const;
+export type PullRequestCheckState = (typeof pullRequestCheckStateValues)[number];
+
+export const pullRequestReviewStateValues = ["approved", "changesRequested", "commented", "dismissed", "other"] as const;
+export type PullRequestReviewState = (typeof pullRequestReviewStateValues)[number];
+
+export const pullRequestStateValues = ["open", "merged", "closed"] as const;
+export type PullRequestState = (typeof pullRequestStateValues)[number];
+
+export const restartIntentPhaseValues = ["intent", "applied", "held"] as const;
+export type RestartIntentPhase = (typeof restartIntentPhaseValues)[number];
+
+export const runBoxesDotValues = ["needs", "held"] as const;
+export type RunBoxesDot = (typeof runBoxesDotValues)[number];
+
+export const runBoxesStateValues = ["idle", "done", "todo", "skip", "needs", "held", "running", "watching", "paused"] as const;
+export type RunBoxesState = (typeof runBoxesStateValues)[number];
+
+export const runBoxesTrackValues = ["done", "todo", "skip"] as const;
+export type RunBoxesTrack = (typeof runBoxesTrackValues)[number];
+
+export const runCommandValues = ["decide", "resume", "answer", "abort", "drop", "park", "unpark", "pause", "resume-run", "retry-continuation", "start-now", "continue-session", "adjust-stage", "afk", "erase", "overrule-afk"] as const;
+export type RunCommand = (typeof runCommandValues)[number];
+
+export const runMenuOpensValues = ["command", "send", "sendAgain", "confirm"] as const;
+export type RunMenuOpens = (typeof runMenuOpensValues)[number];
+
+export const runMetroGlyphValues = ["circle", "diamond", "square"] as const;
+export type RunMetroGlyph = (typeof runMetroGlyphValues)[number];
+
+export const runMetroStationStateValues = ["done", "current", "todo", "skip"] as const;
+export type RunMetroStationState = (typeof runMetroStationStateValues)[number];
+
+export const runMetroTravelValues = ["done", "todo", "skip"] as const;
+export type RunMetroTravel = (typeof runMetroTravelValues)[number];
+
+export const runPausePhaseValues = ["pausing", "paused", "incomplete", "resuming", "reconcileFailed"] as const;
+export type RunPausePhase = (typeof runPausePhaseValues)[number];
+
+export const runStateValues = ["queued", "running", "waiting", "held", "parked", "done", "shipped", "dropped"] as const;
+export type RunState = (typeof runStateValues)[number];
+
+export const scheduleDaysValues = ["everyDay", "weekdays", "weekly"] as const;
+export type ScheduleDays = (typeof scheduleDaysValues)[number];
+
+export const shadowArmValues = ["live", "shadow"] as const;
+export type ShadowArm = (typeof shadowArmValues)[number];
+
+export const shadowResultValues = ["accepted", "discarded"] as const;
+export type ShadowResult = (typeof shadowResultValues)[number];
+
+export const shadowStageChangeValues = ["added", "changed", "removed"] as const;
+export type ShadowStageChange = (typeof shadowStageChangeValues)[number];
+
+export const stageIconValues = ["funnel", "doc", "approve", "wrench", "scope", "ship", "merge", "flag", "eye", "send", "list", "pen", "cycle", "branch", "gauge", "chip", "bolt", "jira", "clock", "hand"] as const;
+export type StageIcon = (typeof stageIconValues)[number];
+
+export const stageTypeValues = ["agent", "approve", "watch"] as const;
+export type StageType = (typeof stageTypeValues)[number];
+
+export const subjectKindValues = ["issue", "pullRequest", "jira", "manual", "scheduled"] as const;
+export type SubjectKind = (typeof subjectKindValues)[number];
+
+export const thenActionValues = ["next", "goto", "route", "retry", "hold", "park", "done", "ship", "drop"] as const;
+export type ThenAction = (typeof thenActionValues)[number];
+
+export const thinkingValues = ["low", "medium", "high", "xhigh", "max"] as const;
+export type Thinking = (typeof thinkingValues)[number];
+
+export const tintValues = ["blue", "sand", "gold", "green", "violet", "rose", "teal", "coral", "grey"] as const;
+export type Tint = (typeof tintValues)[number];
+
+export const toneValues = ["good", "you", "problem", "neutral"] as const;
+export type Tone = (typeof toneValues)[number];
+
+export const triggerAssigneeValues = ["anyone", "me"] as const;
+export type TriggerAssignee = (typeof triggerAssigneeValues)[number];
+
+export const triggerKindValues = ["issues", "reviews", "jira", "schedule", "manual"] as const;
+export type TriggerKind = (typeof triggerKindValues)[number];
+
+export const triggerReviewersValues = ["me", "meAndTeams"] as const;
+export type TriggerReviewers = (typeof triggerReviewersValues)[number];
+
+export const usageCoverageValues = ["complete", "partial", "untracked"] as const;
+export type UsageCoverage = (typeof usageCoverageValues)[number];
+
+export const watchEventValues = ["merged", "closed", "checksFailed", "conflicted", "behind", "approved", "commented", "changesRequested", "newChanges", "none"] as const;
+export type WatchEvent = (typeof watchEventValues)[number];
+
+export const watchTargetValues = ["pullRequest", "ticket"] as const;
+export type WatchTarget = (typeof watchTargetValues)[number];
+
+export const workspaceValues = ["readOnly", "worktree", "worktreeReadOnly"] as const;
+export type Workspace = (typeof workspaceValues)[number];
+
+export interface Adjustment {
+  stageId: string;
+  date: string;
+  fields: AdjustmentField[];
+}
+
+export interface AfkDecision {
+  id: string;
+  runId: string;
+  beltName: string;
+  subjectRef: string;
+  subjectTitle: string;
+  stageId: string;
+  stageName: string;
+  situation: string;
+  situationLabel: string;
+  reason?: string;
+  key: string;
+  status: string;
+  startedAt: string;
+  decidedAt?: string;
+  choice?: string;
+  action?: string;
+  message?: string;
+  why?: string;
+  detail?: string;
+  session?: string;
+  sessionId?: string;
+  backend?: string;
+  model?: string;
+  thinking?: string;
+  folder: string;
+  reviewed: boolean;
+  overrule?: AfkOverrule;
+  needsReview: boolean;
+  label: string;
+  tone: string;
+  headline: string;
+  overruleLine?: string;
+  runExists: boolean;
+  stageExists: boolean;
+  folderExists: boolean;
+  revealUnavailable?: string;
+  overruleOffer?: AfkOverruleOffer;
+}
+
+export interface AfkDecisionCounts {
+  review: number;
+  all: number;
+}
+
+export interface AfkDecisionsResponse {
+  filter: string;
+  counts: AfkDecisionCounts;
+  decisions: AfkDecision[];
+}
+
+export interface AfkOverrule {
+  comments: string;
+  stageId: string;
+  stageName: string;
+  routeName?: string;
+  at: string;
+  attemptId: string;
+  phase: string;
+  detail?: string;
+  stageLabel: string;
+}
+
+export interface AfkOverruleOffer {
+  available: boolean;
+  reason?: string;
+  previous?: AfkTarget;
+  choices: AfkTarget[];
+  decisionStage?: string;
+  currentStage?: string;
+  warning: string;
+  notice: string;
+  commentsHelp: string;
+}
+
+export interface AfkRequest {
+  enabled: boolean;
+}
+
+export interface AfkSettings {
+  enabled: boolean;
+  answerQuestions: boolean;
+  rerunFailures: boolean;
+  approve: boolean;
+  resolveHolds: boolean;
+  drop: boolean;
+  limit: number;
+  guidance: string;
+  backend: Backend;
+  model: string;
+  thinking?: Thinking;
+}
+
+export interface AfkTarget {
+  stageId: string;
+  label: string;
+}
+
+export interface Agent {
+  id: string;
+  version: number;
+  name: string;
+  key: string;
+  workspace: Workspace;
+  slots: number;
+  runner: Backend;
+  model: string;
+  thinking?: Thinking;
+  alternates: SessionSettings[];
+  machine: Machine;
+  tint: Tint;
+  icon?: StageIcon;
+  outcomes: AgentOutcome[];
+  brief: string;
+  origin?: LibraryOrigin;
+}
+
+export interface AgentAction {
+  id: string;
+  label: string;
+  enabled: boolean;
+  reason?: string;
+}
+
+export interface AgentChoiceResponse {
+  id: string;
+  name: string;
+  version: number;
+}
+
+export interface AgentDetailResponse {
+  agent: Agent;
+  archived: boolean;
+  builtIn: boolean;
+  actions: AgentAction[];
+  presentation: AgentPresentation;
+  folder: string;
+  origin?: LibraryOrigin;
+}
+
+export interface AgentDraftPresentationRequest {
+  agent: Agent;
+}
+
+export interface AgentDraftResponse {
+  agent: Agent;
+  actions: AgentAction[];
+  presentation: AgentPresentation;
+}
+
+export interface AgentDraftSwitchRunnerRequest {
+  agent: Agent;
+  runner: Backend;
+  alternateIndex?: number;
+}
+
+export interface AgentOutcome {
+  name: string;
+  when: string;
+  tone: Tone;
+  then: Then;
+  to: string[];
+}
+
+export interface AgentOutcomeTarget {
+  id: string;
+  label: string;
+}
+
+export interface AgentPresentation {
+  isNew: boolean;
+  builtIn: boolean;
+  archived: boolean;
+  warnings: string[];
+  footer: string;
+  placeholders: PlaceholderHelp;
+  usedBy: AgentUsage[];
+  outcomeTargets: AgentOutcomeTarget[];
+  canReset: boolean;
+  resetReason?: string;
+  glyph: StageIcon;
+  status: string;
+}
+
+export interface AgentRecordResponse {
+  agent: Agent;
+  archived: boolean;
+  builtIn: boolean;
+  beltCount?: number;
+  glyph: StageIcon;
+  detail: string;
+}
+
+export interface AgentRef {
+  id: string;
+  version: number;
+}
+
+export interface AgentSaveRequest {
+  agent: Agent;
+}
+
+export interface AgentSnapshot {
+  id: string;
+  version: number;
+  file: string;
+}
+
+export interface AgentUsage {
+  beltId: string;
+  beltName: string;
+  version: number;
+}
+
+export interface AgentsResponse {
+  agents: AgentRecordResponse[];
+  choices: AgentChoiceResponse[];
+  actions: AgentAction[];
+  browser?: LibraryBrowser;
+}
+
+export interface ArtifactLinkResponse {
+  url: string;
+  expiresAt: string;
+}
+
+export interface AssistantActionResponse {
+  id: string;
+  enabled: boolean;
+  label: string;
+  reason: string | null;
+}
+
+export interface AssistantConfiguration {
+  backend: Backend;
+  model: string;
+  thinking?: Thinking;
+}
+
+export interface AssistantConfigurationResponse {
+  backend: Backend;
+  model: string;
+  thinking: Thinking | null;
+}
+
+export interface AssistantResponse {
+  running: boolean;
+  busy: boolean;
+  session: string;
+  command: string[] | null;
+  configuration: AssistantConfigurationResponse;
+  checkCommand: string[] | null;
+  problems: string[];
+  actions: AssistantActionResponse[];
+}
+
+export interface AssistantStartRequest {
+  request: string;
+}
+
+export interface Attempt {
+  id: string;
+  stageId: string;
+  number: number;
+  startedAt: string;
+  endedAt?: string;
+  outcome?: string;
+  tone?: Tone;
+  route?: string;
+  note?: string;
+  session?: string;
+  sessionId?: string;
+  settings?: SessionSettings;
+  continues?: string;
+  replays?: string;
+  agentName?: string;
+  logMark?: number;
+  usage?: Usage;
+  usageMark?: number;
+  copilotInteractive?: boolean;
+  launchMode?: AttemptLaunchMode;
+  completionToken?: string;
+  usageCheckpoint?: UsageCheckpoint;
+  folder: string;
+  leg?: string;
+  detail?: string;
+  afkDecision?: string;
+  interruption?: AttemptInterruption;
+  readOnlyBaseline?: string;
+}
+
+export interface AttemptArtifact {
+  name: string;
+  sizeBytes: number;
+  url: string;
+  expiresAt: string;
+}
+
+export interface AttemptArtifactsResponse {
+  runId: string;
+  attemptId: string;
+  artifacts: AttemptArtifact[];
+  warning: string;
+}
+
+export interface AttemptInterruption {
+  operation: string;
+  legId: string;
+  confirmation: AttemptInterruptionConfirmation;
+  reason?: string;
+  conversation?: string;
+  transcriptMark?: number;
+  usageMark?: number;
+  usageCheckpoint?: UsageCheckpoint;
+  continuation?: AttemptInterruptionContinuation;
+}
+
+export interface AttemptInterruptionContinuation {
+  operation: string;
+  status: AttemptInterruptionContinuationStatus;
+  reason?: string;
+  prompt: string;
+}
+
+export interface AttemptOutputResponse {
+  runId: string;
+  attemptId: string;
+  availability: string;
+  blocks: MarkdownBlock[];
+  message?: string;
+}
+
+export interface Belt {
+  id: string;
+  name: string;
+  version: number;
+  triggers: TriggerEntry[];
+  base: string;
+  repositoryBases?: Record<string, string>;
+  policies: Policies;
+  stages: Stage[];
+  forks: Fork[];
+  afk: AfkMode;
+  origin?: LibraryOrigin;
+}
+
+export interface BeltAction {
+  id: string;
+  enabled: boolean;
+  reason?: string;
+}
+
+export interface BeltAfkControl {
+  mode: AfkMode;
+  next: AfkMode;
+  on: boolean;
+  label: string;
+}
+
+export interface BeltAfkRequest {
+  afk: AfkMode;
+}
+
+export interface BeltContext {
+  actions: BeltAction[];
+  warnings: string[];
+  placeholders?: PlaceholderHelp;
+  routes: BeltContextPresentationRouteItem[];
+  stages: BeltContextPresentationStageItem[];
+  outcomes: BeltContextPresentationOutcomePreview[];
+  schedules: BeltContextPresentationSchedulePreview[];
+  policies: BeltContextPresentationPolicyOption[];
+  policySection?: BeltContextPresentationPolicySection;
+  triggerForm?: TriggerFormPresentation;
+  stage?: StageMenu;
+  notes?: EditorNotes;
+  agent?: PinnedAgent;
+  line?: StageLinePresentation;
+  outdatedStages?: number;
+  task?: TaskDraftSelection;
+  taskEntries: TaskDraftEntry[];
+  modelStatus?: StageModelStatus;
+  shadowDifferences?: ShadowStageDifference[];
+}
+
+export interface BeltContextPresentationOutcomePreview {
+  stage: string;
+  outcome: string;
+  label: string;
+}
+
+export interface BeltContextPresentationPolicyOption {
+  key: string;
+  label: string;
+  detail: string;
+  enabled: boolean;
+}
+
+export interface BeltContextPresentationPolicySection {
+  heading: string;
+  options: BeltContextPresentationPolicyOption[];
+  note?: string;
+}
+
+export interface BeltContextPresentationRouteItem {
+  id: string;
+  name: string;
+  fork: string;
+}
+
+export interface BeltContextPresentationSchedulePreview {
+  entry: string;
+  summary: string;
+  next?: string;
+  note: string;
+}
+
+export interface BeltContextPresentationStageItem {
+  id: string;
+  name: string;
+}
+
+export interface BeltContextRequest {
+  draft: Belt;
+  stageId?: string;
+  shadow?: boolean;
+}
+
+export interface BeltDraftOnlyRequest {
+  draft: Belt;
+}
+
+export interface BeltDraftResponse {
+  draft: Belt;
+  warnings: string[];
+  actions: BeltAction[];
+  placeholders?: PlaceholderHelp;
+  stash?: TriggerStash;
+}
+
+export interface BeltEmptyRequest {
+}
+
+export interface BeltPauseRequest {
+  paused: boolean;
+}
+
+export interface BeltProblem {
+  message: string;
+  location?: ProblemLocation;
+}
+
+export interface BeltResourceResponse {
+  resource: BeltSnapshot;
+  warnings: string[];
+  problems: BeltProblem[];
+}
+
+export interface BeltSaveRequest {
+  belt: Belt;
+}
+
+export interface BeltSnapshot {
+  belt?: Belt;
+  paused: boolean;
+  archived: boolean;
+  effectivelyPaused: boolean;
+  created: string;
+  lastFired: string | null;
+  actions: BeltAction[];
+  warnings: string[];
+  revision: string;
+  detail: string;
+  afk: BeltAfkControl;
+  draft: Belt;
+  origin: LibraryOrigin | null;
+  shadow?: ShadowSummary;
+}
+
+export interface BeltStageTemplateRequest {
+  draft: Belt;
+  type: StageType;
+  agent?: AgentRef;
+  route?: string;
+  index?: number;
+}
+
+export interface BeltStageTemplateResponse {
+  stage: Stage;
+}
+
+export interface BeltUpdateStageRequest {
+  draft: Belt;
+  stageId?: string;
+  index?: number;
+}
+
+export interface BeltsResponse {
+  belts: BeltSnapshot[];
+  liveIds: string[];
+  browser?: LibraryBrowser;
+}
+
+export interface BoxMap {
+  width: number;
+  height: number;
+  nodes: BoxMapNode[];
+  edges: BoxMapEdge[];
+  forks: BoxMapForkArea[];
+  routes: BoxMapRoutePill[];
+  inserts: BoxMapInsert[];
+}
+
+export interface BoxMapEdge {
+  from: string;
+  to: string;
+  path: MapPath;
+  straight: boolean;
+  route?: string;
+}
+
+export interface BoxMapForkArea {
+  id: string;
+  routes: number;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+export interface BoxMapInsert {
+  x: number;
+  y: number;
+  after?: string;
+  before?: string;
+  route?: string;
+  addAt: number;
+}
+
+export interface BoxMapNode {
+  id: string;
+  kind: BoxMapKind;
+  number: number;
+  fork?: string;
+  route?: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  icon: StageIcon;
+  tint?: Tint;
+}
+
+export interface BoxMapRoutePill {
+  fork: string;
+  route: string;
+  name: string;
+  x: number;
+  y: number;
+  stageIds: string[];
+  feeds: boolean;
+}
+
+export interface ContinueSessionResponse {
+  run: RunSnapshot;
+  command: string[];
+  target: string;
+}
+
+export interface DesktopSuccess {
+  ok: boolean;
+}
+
+export interface EditorNotes {
+  whileEditing?: string;
+  whenSaved?: string;
+}
+
+export interface EraseResponse {
+  id: string;
+  erased: boolean;
+}
+
+export interface ErrorResponse {
+  message: string;
+  problems: string[];
+  locations?: (ProblemLocation | null)[];
+}
+
+export interface Fork {
+  id: string;
+  routes: Route[];
+  parent?: string;
+  at?: number;
+}
+
+export interface HeldAnswerCopy {
+  stage: string;
+  buttonTitle: string;
+  buttonHelp: string;
+  note: string;
+}
+
+export interface InsightsBelt {
+  id: string;
+  label: string;
+}
+
+export interface InsightsBeltRow {
+  id: string;
+  name: string;
+  runs: number;
+  shipRate: InsightsRate;
+  firstTry: InsightsRate;
+  leadTime: string;
+  costPerRun: string;
+  trend: InsightsSeries;
+}
+
+export interface InsightsBin {
+  from: number;
+  to: number;
+  label: string;
+  before: number;
+  recent: number;
+}
+
+export interface InsightsColumn {
+  label: string;
+  runs: number;
+  changes: number;
+  changeCaption: string;
+}
+
+export interface InsightsColumnStat {
+  value: number | null;
+  low: number | null;
+  high: number | null;
+  display: string;
+  runs: number;
+}
+
+export interface InsightsDelta {
+  label: string;
+  tone: InsightsDeltaTone;
+  caption: string;
+}
+
+export interface InsightsDot {
+  run: number;
+  value: number;
+  display: string;
+  partial?: boolean;
+}
+
+export interface InsightsDropRow {
+  stage: string;
+  before: number;
+  recent: number;
+  reason: string;
+}
+
+export interface InsightsEndings {
+  funnel: InsightsFunnelRow[];
+  drops: InsightsDropRow[];
+}
+
+export interface InsightsEvolutionResponse {
+  belt: string;
+  belts: InsightsBelt[];
+  title: string;
+  caption: string;
+  axis: InsightsEvolutionAxis;
+  separate: boolean;
+  columns: InsightsColumn[];
+  from: number;
+  split: string;
+  runs: InsightsEvolutionRun[];
+  figures: InsightsFigure[];
+  time: InsightsStack;
+  touches: InsightsStack;
+  sendsBack: InsightsGrid;
+  cost: InsightsStack;
+  endings: InsightsEndings;
+}
+
+export interface InsightsEvolutionRun {
+  id: string;
+  ref: string;
+  title: string;
+  version: number;
+  outcome: InsightsEvolutionOutcome;
+  finished: string;
+  column: number;
+}
+
+export interface InsightsFigure {
+  id: InsightsFigureID;
+  label: string;
+  value: string;
+  change: string;
+  caption: string;
+  share: boolean;
+  scalable: boolean;
+  columns: InsightsColumnStat[];
+  dots: InsightsDot[];
+  min: number;
+  logMin: number;
+  max: number;
+  ticks: InsightsTick[];
+  logTicks: InsightsTick[];
+  spread?: InsightsSpread;
+}
+
+export interface InsightsFigures {
+  visits: number;
+  visitsPerRun: string;
+  lowSample: boolean;
+  medianTime: string;
+  firstTry: InsightsRate;
+  tries: string;
+  cost: string;
+  costCaption: string;
+}
+
+export interface InsightsFunnelRow {
+  label: string;
+  before: InsightsRate;
+  recent: InsightsRate;
+}
+
+export interface InsightsGrid {
+  rows: InsightsGridRow[];
+  max: number;
+}
+
+export interface InsightsGridRow {
+  label: string;
+  values: number[];
+  displays: string[];
+}
+
+export interface InsightsModel {
+  model: string;
+  runner: string;
+  best: boolean;
+  figures: InsightsFigures;
+}
+
+export interface InsightsPeriodChoice {
+  value: InsightsPeriod;
+  label: string;
+}
+
+export interface InsightsPoint {
+  label: string;
+  value: number | null;
+  display: string;
+  count: number;
+}
+
+export interface InsightsRate {
+  count: number;
+  of: number;
+  percent: string;
+}
+
+export interface InsightsResponse {
+  belt: string;
+  version: number;
+  versions: InsightsVersionChoice[];
+  period: InsightsPeriod;
+  belts: InsightsBelt[];
+  periods: InsightsPeriodChoice[];
+  title: string;
+  caption: string;
+  lowSampleThreshold: number;
+  beltRows: InsightsBeltRow[];
+  stages: InsightsStage[];
+  shadow?: InsightsShadow;
+}
+
+export interface InsightsSeries {
+  points: InsightsPoint[];
+  delta: InsightsDelta;
+  max: number;
+}
+
+export interface InsightsShadow {
+  test: string;
+  running: boolean;
+  result?: ShadowResult;
+  dates: string;
+  caption: string;
+  live: InsightsShadowArm;
+  shadow: InsightsShadowArm;
+  figures: InsightsShadowFigure[];
+  stages: InsightsShadowStage[];
+  onlyShadow: InsightsStage[];
+  onlyLive: InsightsStage[];
+}
+
+export interface InsightsShadowArm {
+  label: string;
+  finished: number;
+  going: number;
+  caption: string;
+}
+
+export interface InsightsShadowFigure {
+  id: InsightsKpiID;
+  label: string;
+  live: InsightsShadowValue;
+  shadow: InsightsShadowValue;
+  delta: InsightsDelta;
+}
+
+export interface InsightsShadowStage {
+  key: string;
+  name: string;
+  kindLabel: string;
+  changed: boolean;
+  live: InsightsFigures;
+  shadow: InsightsFigures;
+  tones: InsightsShadowTones;
+}
+
+export interface InsightsShadowTones {
+  visitsPerRun: InsightsDeltaTone;
+  medianTime: InsightsDeltaTone;
+  firstTry: InsightsDeltaTone;
+  tries: InsightsDeltaTone;
+  cost: InsightsDeltaTone;
+}
+
+export interface InsightsShadowValue {
+  value: string;
+  caption: string;
+  bar: number;
+}
+
+export interface InsightsSpread {
+  bins: InsightsBin[];
+  logBins: InsightsBin[];
+  before: number[];
+  recent: number[];
+  headers: string[];
+  rows: InsightsSpreadRow[];
+}
+
+export interface InsightsSpreadRow {
+  label: string;
+  runs: number;
+  cells: string[];
+}
+
+export interface InsightsStack {
+  series: InsightsStackSeries[];
+  line?: InsightsStackLine;
+  max: number;
+  ticks: InsightsTick[];
+  runs: string[];
+}
+
+export interface InsightsStackLine {
+  label: string;
+  values: number[];
+  displays: string[];
+}
+
+export interface InsightsStackSeries {
+  label: string;
+  values: number[];
+  displays: string[];
+}
+
+export interface InsightsStage {
+  key: string;
+  name: string;
+  caption: string;
+  kindLabel: string;
+  figures: InsightsFigures;
+  models: InsightsModel[];
+}
+
+export interface InsightsTick {
+  value: number;
+  label: string;
+}
+
+export interface InsightsVersionChoice {
+  value: number;
+  shadow?: string;
+  label: string;
+}
+
+export interface IssueFilter {
+  label: string;
+  assignee: TriggerAssignee;
+  poll: number;
+}
+
+export interface JiraQuery {
+  jql: string;
+  poll: number;
+}
+
+export interface Join {
+  id: string;
+  forkId: string;
+  routes: string[];
+  parent?: string;
+  legs: string[];
+  escaped: boolean;
+  into?: string;
+  checkout?: string;
+  joined: boolean;
+  afterStage?: string;
+  afterRoutes: Record<string, string[]>;
+}
+
+export interface Leg {
+  id: string;
+  route?: string;
+  stageId?: string;
+  state: RunState;
+  reason?: string;
+  note?: string;
+  continues?: string;
+  replays?: string;
+  branch?: string;
+  join?: string;
+  depart?: string;
+  departJoins?: string[];
+}
+
+export interface LibraryAction {
+  id: string;
+  enabled: boolean;
+  reason?: string;
+}
+
+export interface LibraryBackupResponse {
+  commit: string | null;
+  changed: boolean;
+}
+
+export interface LibraryBrowser {
+  items: LibraryCard[];
+  filters: LibraryFilter[];
+  totalCount: number;
+  matchCount: number;
+  actions: LibraryBrowserAction[];
+}
+
+export interface LibraryBrowserAction {
+  id: string;
+  label: string;
+  enabled: boolean;
+  reason?: string;
+}
+
+export interface LibraryCard {
+  id: string;
+  name: string;
+  version: number;
+  summary: string;
+  detail: string;
+  status: string;
+  statusTone: LibraryCardStatusTone;
+  icon?: StageIcon;
+  tint?: Tint;
+  stages: LibraryCardStage[];
+  shadow?: string;
+}
+
+export interface LibraryCardStage {
+  icon: StageIcon;
+  tint: Tint;
+}
+
+export interface LibraryFilter {
+  id: string;
+  label: string;
+  count: number;
+}
+
+export interface LibraryInstallResponse {
+  written: string[];
+}
+
+export interface LibraryItem {
+  kind: string;
+  id: string;
+  name: string;
+  version: number;
+  localVersion: number | null;
+  state: LibraryItemState;
+  reason: string | null;
+  actions: LibraryAction[];
+}
+
+export interface LibraryItemFileResponse {
+  path: string;
+  repo: string | null;
+  local: string | null;
+}
+
+export interface LibraryItemRequest {
+  repository: string;
+  path: string;
+  kind: string;
+  id: string;
+}
+
+export interface LibraryItemResponse {
+  files: LibraryItemFileResponse[];
+}
+
+export interface LibraryOrigin {
+  repository: string;
+  path: string;
+}
+
+export interface LibraryRepoRequest {
+  repository: string;
+  path: string;
+}
+
+export interface LibraryRepoResponse {
+  repository: string;
+  path: string;
+  role: LibraryRole;
+  publish: LibraryPublish;
+  syncedAt: string | null;
+  commit: string | null;
+  problem: string | null;
+  changedSinceBackup?: boolean;
+  items: LibraryItem[];
+  actions: LibraryAction[];
+}
+
+export interface LibraryReposResponse {
+  repos: LibraryRepoResponse[];
+}
+
+export interface LibraryRepository {
+  repository: string;
+  path: string;
+  role: LibraryRole;
+  publish: LibraryPublish;
+}
+
+export interface LibraryRestoreResponse {
+  savedTo: string;
+}
+
+export interface LibraryShareResponse {
+  pullRequest: string | null;
+  commit: string | null;
+  changed: boolean;
+}
+
+export interface MapPath {
+  subpaths: MapPoint[][];
+  cornerRadius: number;
+}
+
+export interface MapPoint {
+  x: number;
+  y: number;
+}
+
+export interface Merge {
+  branches: string[];
+  into?: string;
+  checkout?: string;
+  leg?: string;
+  context?: string;
+}
+
+export interface MetroLayout {
+  width: number;
+  height: number;
+  lines: MetroLayoutLine[];
+  stations: MetroLayoutStation[];
+  dots: MetroLayoutDot[];
+  labels: MetroLayoutLabel[];
+}
+
+export interface MetroLayoutBar {
+  x: number;
+  top: number;
+  bottom: number;
+}
+
+export interface MetroLayoutBox {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+export interface MetroLayoutBranch {
+  points: MetroLayoutPoint[];
+  from?: string;
+  to?: string;
+  stops: string[];
+  end?: MetroLayoutPoint;
+  back: boolean;
+}
+
+export interface MetroLayoutCard {
+  headline: string;
+  detail?: string;
+  hint: string;
+  left: number;
+  top: number;
+  width: number;
+}
+
+export interface MetroLayoutDot {
+  id: string;
+  runIds: string[];
+  beltId: string;
+  stationId: string;
+  look: string;
+  halo: boolean;
+  place: number;
+  overflow: number;
+  at: MetroLayoutPoint;
+  card: MetroLayoutCard;
+}
+
+export interface MetroLayoutLabel {
+  text: string;
+  box: MetroLayoutBox;
+  needsYou: boolean;
+  urgent?: string;
+  runIds: string[];
+  beltId: string;
+  above: boolean;
+  dot: MetroLayoutPoint;
+  openRunId?: string;
+}
+
+export interface MetroLayoutLine {
+  id: string;
+  beltId: string;
+  name: string;
+  colour: number;
+  nameBox: MetroLayoutBox;
+  points: MetroLayoutPoint[];
+  branches: MetroLayoutBranch[];
+  returns: MetroLayoutPoint[][];
+  terminus: MetroLayoutPoint;
+  paths: string[];
+  returnPaths: string[];
+  endBars: MetroLayoutBar[];
+  routes: MetroLayoutRoute[];
+}
+
+export interface MetroLayoutPoint {
+  x: number;
+  y: number;
+}
+
+export interface MetroLayoutRange {
+  lower: number;
+  upper: number;
+}
+
+export interface MetroLayoutRoute {
+  id: string;
+  fork: string;
+  route: string;
+  text: string;
+  box: MetroLayoutBox;
+}
+
+export interface MetroLayoutStation {
+  id: string;
+  name: string;
+  lines: string[];
+  glyph: string;
+  kind: string;
+  x: number;
+  stops: Record<string, number>;
+  nameBox: MetroLayoutBox;
+  pieces: MetroLayoutRange[];
+  top: number;
+  bottom: number;
+  belts: string[];
+  box: MetroLayoutBox;
+  status: MetroLayoutStatus;
+}
+
+export interface MetroLayoutStatus {
+  text: string;
+  look: string;
+  box: MetroLayoutBox;
+}
+
+export interface MissingResource {
+}
+
+export interface ModelActionResponse {
+  available: boolean;
+  refusalReason: string | null;
+}
+
+export interface ModelActionsResponse {
+  refresh: ModelActionResponse;
+  candidates: ModelCandidateActionResponse[];
+}
+
+export interface ModelAdmission {
+  schemaVersion: number;
+  models: Record<string, ModelChoice[]>;
+  legacyRepairs: string[];
+  legacyAttemptSettings?: Record<string, SessionSettings>;
+}
+
+export interface ModelAllowRequest {
+  model: string;
+  allowed: boolean;
+}
+
+export interface ModelCandidateActionResponse {
+  id: string;
+  allowed: boolean;
+  available: boolean;
+  refusalReason: string | null;
+}
+
+export interface ModelCatalogSnapshot {
+  runner: Backend;
+  executable: string;
+  refreshedAt: string;
+  models: ModelChoice[];
+}
+
+export interface ModelChoice {
+  id: string;
+  name: string;
+  variants?: Record<string, string>;
+  contextTokens?: number;
+}
+
+export interface ModelListingResponse {
+  id: string;
+  label: string;
+  allowed: boolean;
+}
+
+export interface ModelRunnerResponse {
+  runner: Backend;
+  executable: string;
+  catalog: ModelCatalogSnapshot | null;
+  usable: boolean;
+  loading: boolean;
+  error: string | null;
+  allowedModels: string[];
+  choices: ModelChoice[];
+  unavailableModels: string[];
+  thinking: ThinkingChoice[];
+  thinkingNote: string | null;
+  listing: ModelListingResponse[];
+  actions: ModelActionsResponse;
+}
+
+export interface Outcome {
+  id: string;
+  name: string;
+  when: string;
+  tone: Tone;
+  then: Then;
+}
+
+export interface OverviewFloor {
+  total: OverviewFloorCounts;
+  belts: OverviewFloorBelt[];
+  machines?: OverviewFloorMachine[];
+  boxes?: OverviewFloorBox[];
+  layout?: OverviewFloorLayout;
+}
+
+export interface OverviewFloorBelt {
+  id: string;
+  name: string;
+  summary: string;
+  paused: boolean;
+  counts: OverviewFloorCounts;
+}
+
+export interface OverviewFloorBox {
+  id: string;
+  name: string;
+  caption: string;
+  icon: string;
+  tint: string;
+  belts: string[];
+  status: OverviewFloorBoxStatus;
+  runCount: number;
+  chips: OverviewFloorChip[];
+  more: number;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+export interface OverviewFloorBoxStatus {
+  text: string;
+  look: string;
+}
+
+export interface OverviewFloorChip {
+  runId: string;
+  ref: string;
+  belt?: string;
+  state: string;
+  paused: boolean;
+  openStage?: string;
+}
+
+export interface OverviewFloorCounts {
+  needYou: number;
+  running: number;
+  inProgress: number;
+  shippedToday: number;
+}
+
+export interface OverviewFloorLane {
+  from: FactoryNode;
+  to: FactoryNode;
+  belts: string[];
+  path: string;
+  arrow: string;
+  label: string;
+  labelX: number;
+  labelY: number;
+}
+
+export interface OverviewFloorLayout {
+  width: number;
+  height: number;
+  column: number;
+  placed: OverviewFloorPlaced[];
+  tracks: OverviewFloorStroke[];
+  lanes: OverviewFloorLane[];
+}
+
+export interface OverviewFloorMachine {
+  id: string;
+  name: string;
+  number: number;
+  belts: string[];
+  beltNames: string[];
+  mixed: boolean;
+  workers: string;
+  status: OverviewFloorStatus;
+  machine: string;
+  tint: string;
+  runCount: number;
+  chips: OverviewFloorChip[];
+  more: number;
+  dimmed: boolean;
+}
+
+export interface OverviewFloorPlaced {
+  node: FactoryNode;
+  x: number;
+  top: number;
+  height: number;
+  anchor: number;
+}
+
+export interface OverviewFloorStatus {
+  text: string;
+  look: string;
+  face: string;
+}
+
+export interface OverviewFloorStroke {
+  from: FactoryNode;
+  to: FactoryNode;
+  belts: string[];
+  path: string;
+  width: number;
+}
+
+export interface OverviewResponse {
+  summary: RunCounts;
+  caption: string;
+  greeting: string;
+  look: BeltLook;
+  today: OverviewSummary;
+  floor: OverviewFloor;
+  metroLayout?: MetroLayout;
+  runs: OverviewRun[];
+}
+
+export interface OverviewRun {
+  id: string;
+  ref: string;
+  title: string;
+  stageName: string;
+  repository: string;
+  beltId: string;
+  beltName: string;
+  location: WorkLocation;
+  needsYou: boolean;
+  openStage?: string;
+}
+
+export interface OverviewSummary {
+  spend: OverviewSummarySpend;
+  sessions: OverviewSummarySessions;
+  running: OverviewSummaryRunning;
+  shipped: OverviewSummaryShipped;
+  inProgress: OverviewSummaryRows;
+  needsYou: OverviewSummaryRows;
+}
+
+export interface OverviewSummaryChart {
+  line: string;
+  area: string;
+  dotX: number;
+  dotY: number;
+  startLabel: string;
+  endLabel: string;
+  latestLabel: string;
+}
+
+export interface OverviewSummaryRow {
+  runId: string;
+  glyph: string;
+  look: string;
+  title: string;
+  chip: string;
+  openStage?: string;
+}
+
+export interface OverviewSummaryRows {
+  count: number;
+  rows: OverviewSummaryRow[];
+  empty: string;
+}
+
+export interface OverviewSummaryRunning {
+  count: number;
+  runIds: string[];
+  remaining: number;
+  empty: string;
+  busy: string;
+}
+
+export interface OverviewSummarySessions {
+  today: number;
+  running: number;
+  start: string;
+  startLabel: string;
+  shades: number[];
+  runningCaption: string;
+}
+
+export interface OverviewSummaryShipped {
+  weeks: number[];
+  latest: number;
+  median: string;
+  chart: OverviewSummaryChart;
+}
+
+export interface OverviewSummarySpend {
+  amount: string;
+  caption: string;
+  note?: string;
+}
+
+export interface Parking {
+  routes: ParkingRoute[];
+  stopping: string[];
+  stopError?: string;
+  unparkPending: boolean;
+  at: string;
+}
+
+export interface ParkingRoute {
+  leg: string;
+  stageId?: string;
+  state: RunState;
+  reason?: string;
+  note?: string;
+  continues?: string;
+  replays?: string;
+  interrupted?: string;
+  session?: string;
+}
+
+export interface PauseRequest {
+  paused: boolean;
+}
+
+export interface PinnedAgent {
+  id: string;
+  version: number;
+  name: string;
+  brief: string;
+  key?: string;
+  latestVersion?: number;
+  archived: boolean;
+  missing: boolean;
+}
+
+export interface PlaceholderHelp {
+  entries: PlaceholderHelpEntry[];
+  qualification?: string;
+  legacy: boolean;
+  prose: PlaceholderHelpProse;
+}
+
+export interface PlaceholderHelpEntry {
+  name: string;
+  description: string;
+}
+
+export interface PlaceholderHelpProse {
+  introduction: string;
+  resolution: string;
+  warnings: string;
+  syntax: string;
+  example: string;
+  renderedExample: string;
+  exampleNote: string;
+  resolutionNote: string;
+}
+
+export interface PlaceholdersResponse {
+  placeholders: PlaceholderHelp;
+}
+
+export interface Policies {
+  retriageOnEdit: boolean;
+  stopOnClose: boolean;
+  commentOnHold: boolean;
+  waitForBlockers: boolean;
+}
+
+export interface ProblemLocation {
+  kind: string;
+  id?: string;
+  field?: string;
+}
+
+export interface PullRequest {
+  repo: string;
+  number: number;
+  url: string;
+  state: PullRequestState;
+  headSha?: string;
+  baseRef?: string;
+  checks?: PullRequestCheckState;
+  checkFailures?: number;
+  checkTotal?: number;
+  conflicted?: boolean;
+  behind?: number;
+  reviews?: PullRequestReview[];
+}
+
+export interface PullRequestReview {
+  id?: string;
+  author: string;
+  state: PullRequestReviewState;
+  commit?: string;
+  submittedAt?: string;
+}
+
+export interface RateProvenance {
+  revision: string;
+  source: string;
+  models: string[];
+}
+
+export interface RestartIntent {
+  decisionId: string;
+  attemptId: string;
+  stageId: string;
+  comments: string;
+  at: string;
+  phase: RestartIntentPhase;
+  detail?: string;
+}
+
+export interface ReviewFilter {
+  reviewers: TriggerReviewers;
+  poll: number;
+}
+
+export interface Route {
+  id: string;
+  name: string;
+  feeds?: boolean;
+}
+
+export interface Run {
+  id: string;
+  beltId: string;
+  beltName: string;
+  beltVersion: number;
+  shadow?: RunShadow;
+  stages: Stage[];
+  forks: Fork[];
+  adjustments: Adjustment[];
+  policies: Policies;
+  base: string;
+  baseFromLabel?: boolean;
+  repositoryBases?: Record<string, string>;
+  repos: string[];
+  source?: RunSource;
+  issue: Subject;
+  state: RunState;
+  stageId: string;
+  reason?: string;
+  shipping?: boolean;
+  note?: string;
+  continues?: string;
+  replays?: string;
+  uses: Record<string, number>;
+  routes: RouteSet;
+  legs: Leg[];
+  mergeBranches: string[];
+  mergeInto?: string;
+  mergeCheckout?: string;
+  mergeLeg?: string;
+  mergeContext?: string;
+  mergesWaiting: Merge[];
+  mergeNote?: string;
+  mergeNoteLeg?: string;
+  joins: Join[];
+  attempts: Attempt[];
+  branch?: string;
+  pullRequests: PullRequest[];
+  firstPullRequestAt?: string;
+  agents: AgentSnapshot[];
+  references?: number;
+  modelAdmission?: ModelAdmission;
+  watchObservations: Record<string, WatchObservation>;
+  ticketObservations: Record<string, TicketObservation>;
+  afkEnabled?: boolean;
+  generation: number;
+  operation: number;
+  restart?: RestartIntent;
+  pause?: RunPause;
+  pauseTime: RunPauseInterval[];
+  parking?: Parking;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface RunAction {
+  id: string;
+  enabled: boolean;
+  reason?: string;
+  stage?: string;
+  leg?: string;
+  outcome?: string;
+  attempt?: string;
+  decision?: string;
+  help?: string;
+  previous?: boolean;
+  needsNote?: boolean;
+  noteLabel?: string;
+  thenHelp?: string;
+}
+
+export interface RunAdjustRunner {
+  runner: string;
+  label: string;
+  models: ModelChoice[];
+  efforts: string[];
+  thinkingNote?: string;
+  emptyNote?: string;
+}
+
+export interface RunAdjustStageRequest {
+  stage: string;
+  model: string;
+  thinking?: string;
+  brief?: string;
+  runner?: string;
+}
+
+export interface RunAdjustSwitchRequest {
+  stage: string;
+  runner: string;
+  model?: string;
+  thinking?: string;
+}
+
+export interface RunAdjustSwitchResponse {
+  runner: string;
+  model: string;
+  thinking?: string;
+}
+
+export interface RunAfk {
+  mode: string;
+  label: string;
+  on: boolean;
+  next: string;
+  help: string;
+}
+
+export interface RunAfkRequest {
+  mode: string;
+}
+
+export interface RunAnswerRequest {
+  answer?: string;
+}
+
+export interface RunAttemptPanel {
+  id: string;
+  number: number;
+  caption: string;
+  content: string;
+  runningAttempt?: number;
+  outcome?: string;
+  tone?: string;
+  route?: string;
+  note?: string;
+  detail?: string;
+  isOpen: boolean;
+}
+
+export interface RunAttemptRequest {
+  attempt: string;
+}
+
+export interface RunBoxes {
+  map: BoxMap;
+  nodes: RunBoxesNode[];
+  edges: RunBoxesEdge[];
+  takenRoutes: string[];
+  caption: string;
+}
+
+export interface RunBoxesChip {
+  text: string;
+  look: string;
+}
+
+export interface RunBoxesEdge {
+  from: string;
+  to: string;
+  state: RunBoxesTrack;
+  route?: string;
+}
+
+export interface RunBoxesNode {
+  id: string;
+  state: RunBoxesState;
+  caption: string;
+  title: string;
+  details: string[];
+  chip?: RunBoxesChip;
+  dot?: RunBoxesDot;
+}
+
+export interface RunCost {
+  nanos?: number;
+  estimated: boolean;
+  partial: boolean;
+  endedAgents: number;
+  liveAgents: boolean;
+  line?: string;
+  estimateExplanation: string;
+}
+
+export interface RunCounts {
+  total: number;
+  active: number;
+  watching: number;
+  running: number;
+  needsYou: number;
+  shippedToday: number;
+}
+
+export interface RunDecideRequest {
+  outcome: string;
+  note?: string;
+}
+
+export interface RunEmptyRequest {
+}
+
+export interface RunLeg {
+  id: string;
+  route?: string;
+  stage: string;
+  state: string;
+  look: string;
+  face: string;
+}
+
+export interface RunLegRequest {
+  leg?: string;
+}
+
+export interface RunLink {
+  id: string;
+  title: string;
+  reference: string;
+  detail: string;
+  url: string;
+}
+
+export interface RunMap {
+  availableWidth: number;
+  contentWidth: number;
+  minimumContentWidth: number;
+  compact: boolean;
+  column: number;
+  height: number;
+  mainY: number;
+  placements: RunMapPlacement[];
+  tracks: RunMapTrackPath[];
+  filledTrackPathIds: string[];
+  fillStageId?: string;
+  fillUntilX: number;
+  finished: boolean;
+  forks: RunMapForkSpan[];
+  routeLabels: RunMapRouteLabel[];
+  crates: RunMapCrate[];
+  caption: string;
+  moving: boolean;
+}
+
+export interface RunMapCrate {
+  id: string;
+  reference: string;
+  state: string;
+  stageId?: string;
+  x: number;
+  y: number;
+}
+
+export interface RunMapForkSpan {
+  id: string;
+  start: number;
+  end: number;
+}
+
+export interface RunMapPlacement {
+  stageId: string;
+  number: number;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  dimmed: boolean;
+}
+
+export interface RunMapPoint {
+  x: number;
+  y: number;
+}
+
+export interface RunMapRouteLabel {
+  id: string;
+  forkId: string;
+  routeId: string;
+  text: string;
+  x: number;
+  y: number;
+  room: number;
+  taken?: boolean;
+}
+
+export interface RunMapTrackPath {
+  id: string;
+  kind: string;
+  forkId?: string;
+  routeId?: string;
+  taken?: boolean;
+  subpaths: RunMapPoint[][];
+  cornerRadius: number;
+}
+
+export interface RunMenuRow {
+  command: RunCommand;
+  label: string;
+  icon: string;
+  danger: boolean;
+  opens: RunMenuOpens;
+  divided: boolean;
+  stage?: string;
+  targets?: RunMenuTarget[];
+  action?: RunAction;
+}
+
+export interface RunMenuTarget {
+  stage: string;
+  name: string;
+}
+
+export interface RunMetro {
+  width: number;
+  height: number;
+  colour: number;
+  trigger: RunMetroPill;
+  segments: RunMetroSegment[];
+  stations: RunMetroStation[];
+  routes: RunMetroRouteTag[];
+  ends: MapPoint[];
+}
+
+export interface RunMetroBox {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+export interface RunMetroPill {
+  text: string;
+  box: RunMetroBox;
+}
+
+export interface RunMetroRouteTag {
+  id: string;
+  fork: string;
+  route: string;
+  text: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  taken?: boolean;
+  feeds: boolean;
+}
+
+export interface RunMetroSegment {
+  id: string;
+  state: RunMetroTravel;
+  path: MapPath;
+}
+
+export interface RunMetroStation {
+  id: string;
+  number: number;
+  name: string;
+  lines: string[];
+  glyph: RunMetroGlyph;
+  x: number;
+  y: number;
+  label: RunMetroBox;
+  hit: RunMetroBox;
+  state: RunMetroStationState;
+  status: string;
+  look: string;
+  tagged: boolean;
+  statusBox: RunMetroBox;
+}
+
+export interface RunOverruleAfkRequest {
+  decision: string;
+  stage: string;
+  comments: string;
+  acceptedWarning: boolean;
+}
+
+export interface RunPause {
+  phase: RunPausePhase;
+  operation: string;
+  requestedAt: string;
+  confirmedAt?: string;
+  reason?: string;
+  snapshots: RunPauseSnapshot[];
+  deferred: RunPauseDeferred[];
+}
+
+export interface RunPauseInterval {
+  start: string;
+  end: string;
+}
+
+export interface RunPauseSnapshot {
+  id: string;
+  state: RunState;
+  stageId?: string;
+  reason?: string;
+}
+
+export interface RunResponse {
+  run: RunSnapshot;
+}
+
+export interface RunResumeRequest {
+  stage?: string;
+  note?: string;
+  earlier?: boolean;
+  leg?: string;
+}
+
+export interface RunSessionsResponse {
+  runId: string;
+  rows: SessionRow[];
+  selection: SessionSelection;
+  emptyMessage?: string;
+  terminal?: SessionTerminal;
+  log?: string;
+  usage?: SessionUsage;
+  takeOver?: SessionOffer;
+  ghostty: SessionOffer;
+  continueSession?: SessionOffer;
+}
+
+export interface RunShadow {
+  test: string;
+  arm: ShadowArm;
+}
+
+export interface RunSource {
+  entry: string;
+  trigger: Trigger;
+  repos: string[];
+}
+
+export interface RunStage {
+  id: string;
+  name: string;
+  number: number;
+  kind: string;
+  step: string;
+  status: RunStatus;
+  compactStatus: RunStatus;
+  defaultAttempt?: string;
+  attempts: RunAttemptPanel[];
+  emptyMessage?: string;
+  liveWatchSummary?: string;
+  machine: string;
+  tint: string;
+  worker?: string;
+  adjust?: RunStageAdjust;
+  facts?: RunStageFacts;
+}
+
+export interface RunStageAdjust {
+  placeholders: PlaceholderHelp;
+  note: string;
+  agentBrief?: string;
+  runner: string;
+  model: string;
+  thinking?: string;
+  brief: string;
+  runners: RunAdjustRunner[];
+  repairNote?: string;
+  freshSessionNote: string;
+}
+
+export interface RunStageFacts {
+  kindChip: string;
+  working: string;
+  state: RunStageFactsChip;
+  canAdjust: boolean;
+  attempts: RunStageFactsAttemptFacts[];
+  deciding?: RunStageFactsAfkNote;
+  watchCards: RunStageFactsWatchCard[];
+  watchLooking?: string;
+  approval?: RunStageFactsApproval;
+  adjustments: RunStageFactsAdjustment[];
+  send: RunStageFactsSend;
+}
+
+export interface RunStageFactsAdjustment {
+  date: string;
+  text: string;
+}
+
+export interface RunStageFactsAfkNote {
+  title: string;
+  overruleLine?: string;
+  comments?: string;
+  why?: string;
+  deciding: boolean;
+}
+
+export interface RunStageFactsApproval {
+  blocks?: MarkdownBlock[];
+  emptyDocument: string;
+  willHeading?: string;
+  will: InlineSpan[][];
+  primary?: string;
+  outcomesHelp: string;
+  outcomes: RunStageFactsOutcome[];
+}
+
+export interface RunStageFactsAttemptFacts {
+  id: string;
+  ranOn: string;
+  file?: string;
+  duration?: string;
+  decision?: string;
+  decidedBy?: string;
+  decidedAt?: string;
+  decisionLine?: string;
+  result?: RunStageFactsAttemptResult;
+  afk?: RunStageFactsAfkNote;
+}
+
+export interface RunStageFactsAttemptResult {
+  outcome?: string;
+  tone?: string;
+  route?: string;
+  note?: string;
+  detail?: string;
+  problem: boolean;
+}
+
+export interface RunStageFactsChip {
+  text: string;
+  tone: string;
+  clockSince?: string;
+}
+
+export interface RunStageFactsOutcome {
+  id: string;
+  name: string;
+  label: string;
+  tone: string;
+}
+
+export interface RunStageFactsSend {
+  earlier?: string;
+  note?: string;
+  again: string;
+}
+
+export interface RunStageFactsWatchCard {
+  id: string;
+  title: string;
+  subtitle: InlineSpan[];
+  state: string;
+  url: string;
+}
+
+export interface RunStatus {
+  text: string;
+  look: string;
+  face: string;
+}
+
+export interface RunTaskRequest {
+  belt: string;
+  entry?: string;
+  repo: string;
+  title: string;
+  body: string;
+}
+
+export interface RunViewResponse {
+  run: Run;
+  availableWidth: number;
+  look: string;
+  map?: RunMap;
+  boxes?: RunBoxes;
+  metro?: RunMetro;
+  metadata: string;
+  heading: string;
+  reference: string;
+  firstVerdict?: string;
+  shadow?: string;
+  pauseCopy?: string;
+  erasureCopy: string;
+  cost: RunCost;
+  sessionCount: number;
+  links: RunLink[];
+  worktrees: RunWorktree[];
+  worktreeAction: string;
+  worktreeUnavailable: string;
+  watchNotes: RunWatchNote[];
+  stages: RunStage[];
+  heldAnswer?: HeldAnswerCopy;
+  legs: RunLeg[];
+  actions: RunAction[];
+  afk: RunAfk;
+  active: boolean;
+  quickActions: RunCommand[];
+  menu: RunMenuRow[];
+}
+
+export interface RunWatchNote {
+  id: string;
+  reference: string;
+  note: string;
+}
+
+export interface RunWorktree {
+  id: string;
+  title: string;
+  detail: string;
+}
+
+export interface RunsResponse {
+  runs: RunSnapshot[];
+}
+
+export interface Schedule {
+  days: ScheduleDays;
+  weekday: number;
+  hour: number;
+  minute: number;
+}
+
+export interface ScheduledTask {
+  schedule: Schedule;
+  title: string;
+  task: string;
+}
+
+export interface SessionOffer {
+  enabled: boolean;
+  reason?: string;
+}
+
+export interface SessionRow {
+  attemptId: string;
+  stageId: string;
+  title: string;
+  caption: string;
+  status: string;
+  session: string;
+  selected: boolean;
+}
+
+export interface SessionSelection {
+  stageId: string;
+  attemptId?: string;
+  fallback?: string;
+}
+
+export interface SessionSettings {
+  runner?: Backend;
+  model: string;
+  thinking?: Thinking;
+}
+
+export interface SessionTerminal {
+  target: string;
+  readOnly: boolean;
+  continued: boolean;
+}
+
+export interface SessionUsage {
+  tokens?: string;
+  estimate?: string;
+}
+
+export interface SettingsPause {
+  start: string;
+  duration: number;
+}
+
+export interface SettingsResponse {
+  login: string;
+  notifications: boolean;
+  libraryRepositories: LibraryRepository[];
+  configurationBackend: Backend;
+  configurationModel: string;
+  configurationThinking: Thinking | null;
+  paused: boolean;
+  pausedAt: string | null;
+  pauses: SettingsPause[];
+  allowedModels: Record<string, string[]>;
+  modelCatalogs: Record<string, ModelCatalogSnapshot>;
+  afk: AfkSettings;
+  beltLook: BeltLook;
+  showInsights: boolean;
+  dataLocation: string;
+  demo: boolean;
+}
+
+export interface ShadowRunCounts {
+  live: number;
+  shadow: number;
+}
+
+export interface ShadowStageDifference {
+  stageId: string;
+  name: string;
+  change: ShadowStageChange;
+  label: string;
+}
+
+export interface ShadowSummary {
+  test: string;
+  version: number;
+  live: number;
+  startedAt: string;
+  runs: ShadowRunCounts;
+  draft: Belt;
+  warnings: string[];
+  differences: ShadowStageDifference[];
+  policiesDiffer: boolean;
+  afkDiffers: boolean;
+  label: string;
+  caption: string;
+}
+
+export interface Stage {
+  id: string;
+  type: StageType;
+  name: string;
+  agent?: AgentRef;
+  key?: string;
+  runner?: Backend;
+  model: string;
+  thinking?: Thinking;
+  alternates?: SessionSettings[];
+  workspace: Workspace;
+  writes: string;
+  slots: number;
+  brief: string;
+  outcomes: Outcome[];
+  fallback: Fallback;
+  route?: string;
+  watch?: WatchTarget;
+}
+
+export interface StageLinePresentation {
+  trigger: StageLinePresentationTrigger;
+  items: StageLinePresentationItem[];
+  addEnd: number;
+  agents: StageLinePresentationAgentChoice[];
+  watchAllowed: boolean;
+}
+
+export interface StageLinePresentationAgentChoice {
+  id: string;
+  version: number;
+  name: string;
+}
+
+export interface StageLinePresentationBlock {
+  id: string;
+  kind: string;
+  subtitle: string[];
+  update?: number;
+}
+
+export interface StageLinePresentationForkBox {
+  id: string;
+  heading: string;
+  feeding: boolean;
+  routes: StageLinePresentationRouteRow[];
+}
+
+export interface StageLinePresentationItem {
+  addAt: number;
+  stage?: StageLinePresentationBlock;
+  fork?: StageLinePresentationForkBox;
+}
+
+export interface StageLinePresentationRouteRow {
+  id: string;
+  caption: string;
+  help: string;
+  removable: boolean;
+  items: StageLinePresentationItem[];
+  addEnd: number;
+  empty?: string;
+}
+
+export interface StageLinePresentationTrigger {
+  kind: string;
+  title: string;
+  lines: string[];
+  help?: string;
+}
+
+export interface StageMenu {
+  stage: string;
+  number: number;
+  kind: string;
+  canMoveEarlier: boolean;
+  canMoveLater: boolean;
+  placement?: StageMenuPlacement;
+  workspaces: StageMenuOption[];
+  watchTargets: StageMenuOption[];
+  watchEvents: StageMenuOption[];
+  watchNote?: string;
+  actions: StageMenuOption[];
+  routesAfter: StageMenuOption[];
+  routePaths: StageMenuOption[];
+  gotoTargets: StageMenuGotoTarget[];
+  runners: StageMenuRunner[];
+  defaultRunner: string;
+  outcomesIntro: string;
+  whenTitle: string;
+  preview: StageMenuPreview;
+  alternatesNote: string;
+}
+
+export interface StageMenuGotoRoute {
+  route: StageMenuOption;
+  stages: StageMenuOption[];
+}
+
+export interface StageMenuGotoTarget {
+  id: string;
+  label: string;
+  counterparts: string[];
+  others: StageMenuGotoRoute[];
+}
+
+export interface StageMenuOption {
+  id: string;
+  label: string;
+}
+
+export interface StageMenuPlacement {
+  off: string;
+  routes: StageMenuOption[];
+}
+
+export interface StageMenuPreview {
+  title: string;
+  lines: string[];
+}
+
+export interface StageMenuRunner {
+  id: string;
+  label: string;
+  thinking: StageMenuOption[];
+  thinkingNote?: string;
+}
+
+export interface StageModelStatus {
+  id: string;
+  label: string;
+  reason: string;
+}
+
+export interface StateAction {
+  id: string;
+  label: string;
+  enabled: boolean;
+  reason: string | null;
+  help?: string;
+}
+
+export interface StateLibrary {
+  offered: boolean;
+  changedSinceBackup: boolean | null;
+}
+
+export interface StateNavigation {
+  belts: number;
+  agents: number;
+  afkToCheck: number;
+  library: StateLibrary;
+}
+
+export interface StateNotice {
+  id: string;
+  date: string;
+  text: string;
+  runId: string | null;
+}
+
+export interface StateResponse {
+  globallyPaused: boolean;
+  checking: boolean;
+  lastCheck: string | null;
+  counts: RunCounts;
+  notices: StateNotice[];
+  settings: StateSettings;
+  actions: StateAction[];
+  navigation: StateNavigation;
+  clockLabel: string;
+  clockTooltip: string;
+}
+
+export interface StateSettings {
+  login: string;
+  notifications: boolean;
+  afkEnabled: boolean;
+}
+
+export interface Subject {
+  kind: SubjectKind;
+  repo: string;
+  number: number;
+  key: string;
+  title: string;
+  body: string;
+  labels: string[];
+  url: string;
+  isOpen: boolean;
+  assignees: string[];
+  base?: string;
+  occurrence?: string;
+  reviewer?: string;
+  parent?: string;
+  blockers: string[];
+}
+
+export interface TaskDraftEntry {
+  id: string;
+  position: number;
+  repos: string[];
+}
+
+export interface TaskDraftSelection {
+  entry?: TaskDraftEntry;
+  repo: string;
+  canStart: boolean;
+  problem?: string;
+}
+
+export interface ThinkingChoice {
+  id: Thinking;
+  label: string;
+}
+
+export interface TicketObservation {
+  status: string;
+  comments: string[];
+  children: Record<string, TicketObservationSeen>;
+  pendingSince?: string;
+}
+
+export interface TicketObservationSeen {
+  status: string;
+  isOpen: boolean;
+}
+
+export interface TokenTotals {
+  input: number;
+  cacheRead: number;
+  output: number;
+  reasoning: number;
+  total: number;
+  cacheWrite?: number;
+}
+
+export interface ToolResponse {
+  name: string;
+  purpose: string;
+  ok: boolean;
+  detail: string;
+  optional: boolean;
+}
+
+export interface ToolsResponse {
+  tools: ToolResponse[];
+  tmuxSocket: string;
+}
+
+export interface TriggerEntry {
+  id: string;
+  trigger: Trigger;
+  repos: string[];
+}
+
+export interface TriggerFormPresentation {
+  kinds: TriggerFormPresentationKind[];
+  pollChoices: TriggerFormPresentationChoice[];
+  assignees: TriggerFormPresentationChoice[];
+  reviewers: TriggerFormPresentationChoice[];
+  scheduleDays: TriggerFormPresentationChoice[];
+  weekdays: TriggerFormPresentationChoice[];
+  hours: TriggerFormPresentationChoice[];
+  minutes: TriggerFormPresentationChoice[];
+  heading: string;
+  empty: string;
+  showsBase: boolean;
+  repositoryBases?: TriggerFormRepositoryBases;
+}
+
+export interface TriggerFormPresentationChoice {
+  value: string;
+  label: string;
+}
+
+export interface TriggerFormPresentationKind {
+  id: string;
+  title: string;
+  heading: string;
+  polls: boolean;
+  oneRepo: boolean;
+  repositoriesTitle: string;
+  note?: string;
+}
+
+export interface TriggerFormRepositoryBaseField {
+  repository: string;
+  label: string;
+}
+
+export interface TriggerFormRepositoryBases {
+  heading: string;
+  help: string;
+  placeholder: string;
+  fields: TriggerFormRepositoryBaseField[];
+}
+
+export interface TriggerStash {
+  entry: string;
+  triggers: Record<string, Trigger>;
+}
+
+export interface Usage {
+  costNanos?: number;
+  provenance?: CostProvenance;
+  coverage: UsageCoverage;
+  input?: number;
+  output?: number;
+  cacheRead?: number;
+  cacheWrite?: number;
+  reasoning?: number;
+  totalTokens?: number;
+  rate?: RateProvenance;
+}
+
+export interface UsageCheckpoint {
+  sessionId?: string;
+  lines?: number;
+  totals?: TokenTotals;
+  preexisting?: string[];
+}
+
+export interface WaitingResponse {
+  waiting: WaitingSubject[];
+}
+
+export interface WaitingSubject {
+  beltId: string;
+  subject: Subject;
+  reference: string;
+  reason: string;
+}
+
+export interface WatchObservation {
+  pullNumber: number;
+  headSha?: string;
+  arrival?: string;
+  reported: WatchEvent[];
+  behindSeen: boolean;
+  approvals: string[];
+  comments: string[];
+  requesting: string[];
+  reviewAuthors: string[];
+  pendingHead?: string;
+  approvalVisit?: string;
+}
+
+export interface WorkBelt {
+  id: string;
+  name: string;
+  archived: boolean;
+  label: string;
+}
+
+export interface WorkGroup {
+  dimension: string;
+  value: string;
+  title: string;
+  label: string;
+  count: number;
+  rows: WorkRow[];
+}
+
+export interface WorkLocation {
+  text: string;
+  look: string;
+  glyph: string;
+}
+
+export interface WorkResponse {
+  summary: RunCounts;
+  caption: string;
+  stage?: WorkStage;
+  belts: WorkBelt[];
+  mainEmptyMessage?: string;
+  mainGroups: WorkGroup[];
+  watchingGroups: WorkGroup[];
+  shadowGroups: WorkGroup[];
+  shownRows: number;
+  watchingRows: number;
+  shadowRows: number;
+  waiting: WaitingSubject[];
+}
+
+export interface WorkRow {
+  run: WorkRun;
+  reference: string;
+  repository: string;
+  updatedAgo: string;
+  progress: number;
+  location: WorkLocation;
+  pausedByYou: boolean;
+  pauseWord?: string;
+  chip?: string;
+  needsYou: boolean;
+  openStage?: string;
+  shadow?: string;
+}
+
+export interface WorkRun {
+  id: string;
+  beltId: string;
+  beltName: string;
+  stageId: string;
+  state: RunState;
+  issue: WorkRunIssue;
+  updatedAt: string;
+}
+
+export interface WorkRunIssue {
+  title: string;
+}
+
+export interface WorkStage {
+  id: string;
+  name: string;
+}
+
+export type EventMessage = { type: "hello"; apiVersion: number } | { type: "changed"; resource: EventResource; revision: number } | { type: "notification"; title: string; body: string };
+export type EventResource = (typeof eventResourceValues)[number];
+export type FactoryNode = { kind: "entrance" | "machine"; value: string } | { kind: "waypoint"; value: number };
+
+export type InlineSpan = { type: "text" | "strong" | "code"; text: string };
+
+export type MarkdownBlock = { type: "heading"; level: number; text: string } | { type: "item"; marker: string; text: string } | { type: "code" | "paragraph"; text: string };
+
+export type RouteSet = Record<string, string | string[]>;
+
+export type RunPauseDeferred = { merged: { _0: string[] } } | { conflict: { _0: string[] } };
+
+export type RunSnapshot = Run & { actions: RunAction[] };
+
+export type Then = { do: ThenAction; to?: string | string[]; route?: string | string[]; withOutput?: boolean; max?: number; comment?: boolean };
+
+export type Trigger = ({ kind: "issues" } & IssueFilter) | ({ kind: "reviews" } & ReviewFilter) | ({ kind: "jira" } & JiraQuery) | ({ kind: "schedule" } & ScheduledTask) | { kind: "manual" };
+
+export type VersionResponse = { apiVersion: number; platform: "macos" | "linux"; version: string };

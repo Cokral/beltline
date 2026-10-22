@@ -1,0 +1,144 @@
+// Tests of the query and width rules: the URI query parameters, and the Double parsing (strtod rules)
+// that the widths use.
+
+package routes
+
+import (
+	"context"
+	"math"
+	"net/http"
+	"net/http/httptest"
+	"testing"
+
+	"github.com/robbertmanders/beltline/daemon/internal/core"
+)
+
+// TestHummingbirdQueryParameter checks each rule of Hummingbird's queryParameters.
+func TestHummingbirdQueryParameter(t *testing.T) {
+	t.Parallel()
+	cases := []struct {
+		name, query, want string
+		ok                bool
+	}{
+		{"plusStaysLiteral", "q=sonnet+4", "sonnet+4", true},
+		{"percentDecodesValue", "q=sonnet%2B4", "sonnet+4", true},
+		{"keysAreComparedRaw", "%71=x", "", false},
+		{"keysAreNotDecodedPlusIsNotSpace", "q+x=1", "", false},
+		{"valueKeepsLaterEquals", "q=a=b", "a=b", true},
+		{"firstValueWins", "q=1&q=2", "1", true},
+		{"pairWithoutEqualsIsEmpty", "q", "", true},
+		{"malformedEscapeIsKeptAsSent", "q=%ZZ", "%ZZ", true},
+		{"emptyPairsAreSkipped", "&&q=x", "x", true},
+		{"encodedAsciiDecodes", "q=%61", "a", true},
+		{"invalidUTF8BecomesReplacement", "q=%FF", "�", true},
+		{"absentKey", "a=1", "", false},
+	}
+	for _, c := range cases {
+		t.Run(c.name, func(t *testing.T) {
+			t.Parallel()
+			got, ok := HummingbirdQueryParameter("q", c.query)
+			if ok != c.ok || got != c.want {
+				t.Fatalf("HummingbirdQueryParameter(q, %q) = %q, %v; want %q, %v", c.query, got, ok, c.want, c.ok)
+			}
+		})
+	}
+}
+
+// TestPercentDecodedQueryValues checks the auth and terminal query rule: `+` stays
+// literal, a bare key is empty, an undecodable key never matches and an
+// undecodable value is empty.
+func TestPercentDecodedQueryValues(t *testing.T) {
+	t.Parallel()
+	cases := []struct {
+		name, query string
+		want        []string
+	}{
+		{"plusStaysLiteral", "token=a+b", []string{"a+b"}},
+		{"percentDecodesValue", "token=a%2Bb", []string{"a+b"}},
+		{"allOccurrencesInOrder", "token=1&x=2&token=3", []string{"1", "3"}},
+		{"bareKeyIsEmpty", "token&x=1", []string{""}},
+		{"undecodableKeyNeverMatches", "%ZZ=1&token=2", []string{"2"}},
+		{"undecodableValueIsEmpty", "token=%ZZ", []string{""}},
+		{"emptyQueryHasNoValues", "", nil},
+		{"absentKey", "x=1", nil},
+	}
+	for _, c := range cases {
+		t.Run(c.name, func(t *testing.T) {
+			t.Parallel()
+			got := PercentDecodedQueryValues("token", c.query)
+			if len(got) != len(c.want) {
+				t.Fatalf("PercentDecodedQueryValues(token, %q) = %q; want %q", c.query, got, c.want)
+			}
+			for i := range got {
+				if got[i] != c.want[i] {
+					t.Fatalf("PercentDecodedQueryValues(token, %q) = %q; want %q", c.query, got, c.want)
+				}
+			}
+		})
+	}
+}
+
+// TestStrtod checks the strtod rules that widths use.
+func TestStrtod(t *testing.T) {
+	t.Parallel()
+	cases := []struct {
+		text string
+		want float64
+		ok   bool
+	}{
+		{"1080", 1080, true},
+		{"1.5", 1.5, true},
+		{"+.5", 0.5, true},
+		{"1e3", 1000, true},
+		{"0x10", 16, true},
+		{"0X1A", 26, true},
+		{"0x1.8p1", 3, true},
+		{"0x1.8", 1.5, true},
+		{"inf", math.Inf(1), true},
+		{"nan", math.NaN(), true},
+		{"1_000", 0, false},
+		{" 1", 0, false},
+		{"1 ", 0, false},
+		{"", 0, false},
+		{"0x", 0, false},
+		{"0xp1", 0, false},
+		{"1,5", 0, false},
+		{"--1", 0, false},
+	}
+	for _, c := range cases {
+		t.Run(c.text, func(t *testing.T) {
+			t.Parallel()
+			got, ok := Strtod(c.text)
+			if ok != c.ok {
+				t.Fatalf("Strtod(%q) ok = %v, want %v", c.text, ok, c.ok)
+			}
+			if ok && !(got == c.want || (math.IsNaN(got) && math.IsNaN(c.want))) {
+				t.Fatalf("Strtod(%q) = %v, want %v", c.text, got, c.want)
+			}
+		})
+	}
+}
+
+// TestErrorRouteDetachesCoordinatorWorkFromTheClient checks that a route's context
+// is not cancelled when the client has gone (R2 #4, R3 #1–2), and keeps the
+// request's error slot for the ErrorMiddleware.
+func TestErrorRouteDetachesCoordinatorWorkFromTheClient(t *testing.T) {
+	t.Parallel()
+	var seen error
+	var recorded bool
+	h := ErrorRoute(func(w http.ResponseWriter, r *http.Request) error {
+		seen = r.Context().Err()
+		recorded = RecordError(r, core.NewFailure("kept"))
+		return nil
+	})
+	ctx, cancel := context.WithCancel(context.Background())
+	cancel()
+	r, slot := WithErrorSlot(httptest.NewRequest(http.MethodGet, "/", nil).WithContext(ctx))
+	h.ServeHTTP(httptest.NewRecorder(), r)
+	if seen != nil {
+		t.Fatalf("handler context err = %v, want nil after the client went away", seen)
+	}
+	if !recorded || slot.Err() == nil {
+		t.Fatal("the error slot was lost by the detached context")
+	}
+}

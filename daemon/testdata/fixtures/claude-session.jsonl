@@ -1,0 +1,8 @@
+{"type":"user","message":{"role":"user","content":"Triage"}}
+{"type":"assistant","message":{"role":"assistant","model":"claude-haiku","stop_reason":"tool_use","content":[{"type":"text","text":"Reading."},{"type":"tool_use","id":"tool1","name":"Read"}]}}
+{"type":"assistant","isSidechain":true,"message":{"role":"assistant","stop_reason":"end_turn","content":[{"type":"text","text":"Outcome: wrong"}]}}
+{"type":"assistant","message":{"role":"assistant","model":"claude-haiku","stop_reason":"end_turn","content":[{"type":"text","text":"Done."},{"type":"text","text":"Outcome: ready to spec"}]}}
+{"type":"assistant","isSidechain":true,"message":{"role":"assistant","model":"<synthetic>","stop_reason":"stop_sequence","content":[{"type":"text","text":"API Error: subagent"}]}}
+{"type":"user","message":{"role":"user","content":"Continue"}}
+{"type":"assistant","message":{"role":"assistant","model":"claude-haiku","stop_reason":"tool_use","content":[{"type":"tool_use","name":"Read"}]}}
+{"type":"assistant","message":{"role":"assistant","model":"<synthetic>","stop_reason":"stop_sequence","content":[{"type":"text","text":"API Error: 401 Not logged in"}]}}

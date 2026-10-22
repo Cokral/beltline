@@ -1,0 +1,18 @@
+build/
+.build/
+.claude/
+.codex/
+.DS_Store
+# go test -c and profiles
+*.test
+*.out
+*.prof
+
+# The web app staged for an embedweb build by scripts/web.sh (generated, never committed).
+daemon/internal/server/webdist/
+.codex/
+.impeccable/
+
+# The web app's build output and test reports
+Web/dist/
+Web/test-results/
