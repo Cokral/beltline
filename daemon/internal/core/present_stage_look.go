@@ -5,8 +5,8 @@ package core
 
 // StageLook is what a stage box shows besides its words: its icon and colour.
 type StageLook struct {
-	Icon StageIcon
-	Tint Tint
+	Icon StageIcon `json:"icon"`
+	Tint Tint      `json:"tint"`
 }
 
 // StageLookOf is the look of a stage box. An agent stage's look comes from its agent; approvals and watches
@@ -51,8 +51,6 @@ func StageLookTrigger(kind *TriggerKind) StageIcon {
 }
 
 // MapPoint is one point of a path, in points.
-//
-// Encoding: synthesized: x, y.
 type MapPoint struct {
 	X float64 `json:"x"`
 	Y float64 `json:"y"`
@@ -60,8 +58,6 @@ type MapPoint struct {
 
 // MapPath is one renderer-independent path. A radius of zero keeps every segment sharp;
 // otherwise each interior point is rounded by that radius.
-//
-// Encoding: synthesized: subpaths, cornerRadius.
 type MapPath struct {
 	Subpaths     [][]MapPoint `json:"subpaths"`
 	CornerRadius float64      `json:"cornerRadius"`
